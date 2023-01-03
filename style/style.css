@@ -1,0 +1,19 @@
+#img{
+    margin: 10px
+}
+
+#searchBtn{
+    margin-bottom: 10px;
+}
+
+#form{
+    margin: 10px;
+}
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}
+#errorText{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
