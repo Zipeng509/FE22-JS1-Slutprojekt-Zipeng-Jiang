@@ -6,6 +6,24 @@
     margin-bottom: 10px;
 }
 
+#loading {
+    border-radius: 100%;
+    width: 0px;
+    height: 0px;
+    margin: auto;
+    border-width: 32px;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-style: solid;
+    border-top-color: turquoise;
+    border-left-color: turquoise;
+    
+}
+
+.hide {
+    display: none;
+}
+
 #form{
     margin: 10px;
 }

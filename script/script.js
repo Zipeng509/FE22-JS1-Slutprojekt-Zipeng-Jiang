@@ -1,6 +1,9 @@
 const formElement = document.getElementById("form");
 const contentElement = document.getElementById("content");
 const error = document.getElementById("error");
+const loading = document.getElementById("loading")
+
+loading.classList.add("hide")
 
 //Url
 function apiUrl(options) {
@@ -28,8 +31,26 @@ function displayImg(imgArray, size){
     const img = document.createElement("img");
     img.src = getImageUrl(imgData, size);
     contentElement.append(img);
+
+    
   });
 }
+
+anime({
+  targets: "#loading",
+  duration: 750,
+  delay: 0,
+  easing: "easeInOutQuad",
+  keyframes: [
+    {
+      rotate: "0deg"
+    },
+    {
+      rotate: "360deg"
+    }
+  ],
+  loop: true
+});
 
 formElement.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -84,6 +105,7 @@ formElement.addEventListener("submit", async (event) => {
       sort = interesting.value;
     }
 
+    loading.classList.remove("hide")
     await searchPhotoByText({
       page: 1,
       pageSize: imageAmount,
@@ -91,21 +113,6 @@ formElement.addEventListener("submit", async (event) => {
       text: searchText,
       imageSize,
     });
+    loading.classList.add("hide")
   }
-
-  //animation för search button
-  //animejs
-  const animationInfo = {
-    targets: "#searchBtn",
-    keyframes: [{ translateX: 250 }, { translateX: 0 }],
-    duration: 4000,
-    easing: "easeOutElastic(1, .8)",
-    loop: false,
-    backgroundColor: "hsl(0, 50%, 80%)",
-    borderRadius: ["0%", "50%"],
-    easing: "easeInOutQuad",
-
-  };
-
-  anime(animationInfo);
 });
