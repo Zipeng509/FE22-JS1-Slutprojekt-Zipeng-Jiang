@@ -25,15 +25,15 @@
       </button>
 
       <div class="input-group mb-3">
-        <span class="input-group-text">Search text</span>
-        <input type="text" class="form-control" name="search-text" onfocus="this.value='' "/>
+        <label for="search-text" class="input-group-text">Search text</label>
+        <input type="text" class="form-control" id="search-text" name="search-text" onfocus="this.value='' "/>
       </div>
 
       <div id="error"></div>
 
       <div class="input-group mb-3">
-        <span class="input-group-text">Image amount</span>
-        <input type="text" class="form-control" name="image-amount" onfocus="this.value='' " />
+        <label for="image-amount" class="input-group-text">Image amount</label>
+        <input type="text" class="form-control" id="image-amount" name="image-amount" onfocus="this.value='' " />
       </div>
 
       <div>
@@ -47,7 +47,7 @@
             value="n"
             type="radio"
           />
-          <label class="form-check-label"> Small </label>
+          <label for="imageSizeSm"  class="form-check-label"> Small </label>
         </div>
 
 
@@ -61,7 +61,7 @@
             type="radio"
             checked
           />
-          <label class="form-check-label"> Medium </label>
+          <label for="imageSizeMd" class="form-check-label"> Medium </label>
         </div>
 
         <div class="form-check">
@@ -72,7 +72,7 @@
             value="b"
             type="radio"
           />
-          <label class="form-check-label"> Large </label>
+          <label for="imageSizeLg" class="form-check-label"> Large </label>
         </div>
 
       </div>
@@ -88,7 +88,7 @@
             value="date-posted-asc"
             type="radio"
           />
-          <label class="form-check-label"> Date uploaded</label>
+          <label for="dateUploaded" class="form-check-label"> Date uploaded</label>
         </div>
 
         <!-- checked. Kommer automatisk vara relevance om inget annat har valt -->
@@ -101,7 +101,7 @@
             type="radio"
             checked
           />
-          <label class="form-check-label"> Relevant </label>
+          <label for="relevance" class="form-check-label"> Relevant </label>
         </div>
 
         <div class="form-check">
@@ -112,7 +112,7 @@
             value="interestingness"
             type="radio"
           />
-          <label class="form-check-label"> Interesting </label>
+          <label for="interesting" class="form-check-label"> Interesting </label>
         </div>
 
       </div>

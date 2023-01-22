@@ -19,20 +19,25 @@ function getImageUrl(item, size) {
 
 //Fetch data från Flickr
 async function searchPhotoByText(options){
-  console.log(options);
   const response = await fetch(apiUrl(options));
   const data = await response.json();
-  displayImg(data.photos.photo, options.imageSize);
+  // Checkar ifall det lämnas tillbak en tom array
+  // Vilket innebär att inget hittades
+  const hasImages = data.photos.photo.length !== 0
+  if (hasImages) {
+    displayImg(data.photos.photo, options.imageSize);
+  }
+  else {
+    // Då ska vissa att inga bilder hittades
+    contentElement.innerHTML = "<h1>No images found</h1>"
+  }
 }
 
 function displayImg(imgArray, size){
-  contentElement.innerHTML = "";
   imgArray.forEach((imgData) => {
     const img = document.createElement("img");
     img.src = getImageUrl(imgData, size);
-    contentElement.append(img);
-
-    
+    contentElement.append(img);    
   });
 }
 
@@ -105,6 +110,9 @@ formElement.addEventListener("submit", async (event) => {
       sort = interesting.value;
     }
 
+    // Återställer contentElement före varje sök 
+    // Så att förgående resultat ska ej vissas med den nya resultaten
+    contentElement.innerHTML = ""
     loading.classList.remove("hide")
     await searchPhotoByText({
       page: 1,
